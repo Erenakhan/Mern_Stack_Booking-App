@@ -64,7 +64,7 @@ return  `https://${bucket}.s3.amazonaws.com/${newFilename}`
 }
 
 // Register route
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const { name, email, password } = req.body;
   const hashedPassword = bcrypt.hashSync(password, 10);
@@ -83,7 +83,7 @@ app.post('/register', async (req, res) => {
 });
 
 // Login route
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const { email, password } = req.body;
   try {
@@ -110,7 +110,7 @@ app.post('/login', async (req, res) => {
 
 ///token 
 
-app.get('/profile', (req, res) => {
+app.get('/api/profile', (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const token = req.cookies.token; 
 
@@ -131,12 +131,12 @@ app.get('/profile', (req, res) => {
 });
 
 //logout
-app.post('/logout', (req, res)=>{
+app.post('/api/logout', (req, res)=>{
   res.cookie('token', '').json('token deleted')
 })
 
 ///photo upload with link
-app.post("/photosWithLink", async (req, res)=>{
+app.post("/api/photosWithLink", async (req, res)=>{
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
    const {link} = req.body;
    const photoName ='photo'+ Date.now() + '.jpg';
@@ -151,7 +151,7 @@ app.post("/photosWithLink", async (req, res)=>{
 //upload photo locally
 
 const photoMiddleware = multer({ dest: '/tmp' }); 
-app.post("/upload", photoMiddleware.array('photos', 100), async (req, res) => {
+app.post("/api/upload", photoMiddleware.array('photos', 100), async (req, res) => {
   const uploadFiles = [];
   for (let i = 0; i < req.files.length; i++) {
     const { path, originalname, mimetype  } = req.files[i];
@@ -167,7 +167,7 @@ app.post("/upload", photoMiddleware.array('photos', 100), async (req, res) => {
 
 
 ///place creating sending
-app.post('/addPlace', async (req, res) => {
+app.post('/api/addPlace', async (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const { title, address, email, desc, photo, checkIn, checkOut, guest, selected, price } = req.body;
   const token = req.cookies.token;
@@ -189,7 +189,7 @@ app.post('/addPlace', async (req, res) => {
   }
 });
 ///place update
-app.put('/addPlace', async (req, res) => {
+app.put('/api/addPlace', async (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   try {
     const { actions, title, address, email, desc, photo, checkIn, checkOut, guest, selected, price } = req.body;
@@ -230,7 +230,7 @@ app.put('/addPlace', async (req, res) => {
 });
 
 // listing of places page for spesific user
-app.get('/listUserPlaces', async (req, res) =>{
+app.get('/api/listUserPlaces', async (req, res) =>{
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const token = req.cookies.token;
   const decoded = jwt.verify(token, jwtSecret);
@@ -239,7 +239,7 @@ app.get('/listUserPlaces', async (req, res) =>{
   res.send(places)
 })
 // listing of places page for all user
-app.get('/listPlaces', async (req, res) =>{
+app.get('/api/listPlaces', async (req, res) =>{
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const places = await Place.find();
   res.send(places)
@@ -253,14 +253,14 @@ app.post('/FormPage', async (req, res) =>{
 })
 
 //selected place
-app.post('/singlePlace', async (req, res) =>{
+app.post('/api/singlePlace', async (req, res) =>{
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const params = req.body
   const places = await Place.findById(params.id);
   res.send(places)
 })
 //  listing single place to put data 
-app.post('/FormPage', async (req, res) =>{
+app.post('/api/FormPage', async (req, res) =>{
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const requestData = req.body.actions;
   const place = await Place.findById(requestData)
@@ -268,7 +268,7 @@ app.post('/FormPage', async (req, res) =>{
 })
 
 //booking place post
-app.post('/bookPlace', async (req, res) => {
+app.post('/api/bookPlace', async (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const {place,title,price,photo, checkIn, checkOut,user, guestCheck, name, phone} = req.body;
   const bookingDoc = await Booking.create({
@@ -279,7 +279,7 @@ app.post('/bookPlace', async (req, res) => {
 
 
 /// booking place get
-app.get('/bookPlace', async (req, res) => {
+app.get('/api/bookPlace', async (req, res) => {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
    const token = req.cookies.token;
    const decoded = jwt.verify(token, jwtSecret);
