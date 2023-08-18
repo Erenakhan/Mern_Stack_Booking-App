@@ -10,6 +10,7 @@ export default function IndexPage() {
     axios.get('/listPlaces').then((response) => setPlaces(response.data));
   }, []);
 
+  console.log(import.meta.env.VITE_API_BASE_URL)
 
   return (
     <div className='mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8'>

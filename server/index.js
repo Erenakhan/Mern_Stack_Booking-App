@@ -28,7 +28,7 @@ require('dotenv').config()
 const bucket = "app-booking";
 
 const corsOptions = {
-  origin:  'http://127.0.0.1:5173',
+  origin:  ['http://127.0.0.1:5173'],
   credentials: true,
 };
 
@@ -245,7 +245,7 @@ app.get('/api/listPlaces', async (req, res) =>{
   res.send(places)
 })
 //  listing single place to put data 
-app.post('/FormPage', async (req, res) =>{
+app.post('/api/FormPage', async (req, res) =>{
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   const requestData = req.body.actions;
   const place = await Place.findById(requestData)
