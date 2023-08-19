@@ -10,8 +10,8 @@ import FormPage from './pages/FormPage';
 import SinglePlace from './pages/singlePlace';
 
 function App() {
-
-  axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+/* import.meta.env.VITE_API_BASE_URL */
+  axios.defaults.baseURL = "https://mern-app-booking.vercel.app/api";
   axios.defaults.withCredentials = true;
 
   return (

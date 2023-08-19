@@ -24,7 +24,7 @@ const { env } = require('process');
 
 const app = express();
 const port = 5000;
-require('dotenv').config()
+require('dotenv').config()  
 const bucket = "app-booking";
 
 const corsOptions = {
@@ -38,15 +38,15 @@ app.use(express.json());
 app.use(cookieParser());
 
   // MongoDB connection
-const uri = process.env.URL;
+const uri = "mongodb+srv://erenakhan:erenakhan123@cluster0.nfh3dwr.mongodb.net/?retryWrites=true&w=majority";
 
 
 async function uploadToS3(path, originalFilename, mimetype){
   const client = new S3Client({
     region: 'eu-north-1',
     credentials: {
-      accessKeyId: process.env.Access_key,
-      secretAccessKey: process.env.Secret_access_key
+      accessKeyId: "AKIAZAKXA2UOT2FVDBGD",
+      secretAccessKey: "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"
     }
   });
   const parts = originalFilename.split('.');
