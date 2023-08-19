@@ -58,7 +58,7 @@ export default function SinglePlace() {
         }
         if (allPhotos) {
             return (
-                <div className="absolute  w-full bg-black text-white min-h-screen  ">
+                <div className="absolute w-screen px-5 md:px-[150px] bg-black text-white min-h-screen  ">
                 <div className='fixed cursor-pointer mt-10 w-full flex justify-end'>
                 <button onClick={() => setAllPhotos(false)} 
                 className='mr-20 bg-white px-4 py-3 text-black rounded-lg '>
@@ -70,7 +70,7 @@ export default function SinglePlace() {
                 </div>
                
                 {place.photo?.length > 0 && (place.photo.map((photo) => (
-                        <div className='flex w-xl mx-auto my-8 '>
+                        <div className='flex  mx-auto my-8 '>
                             <Image
                         key={photo}
                         src={photo}
@@ -88,7 +88,7 @@ export default function SinglePlace() {
                     
 
     return (
-        <div className='w-full mt-4 px-[180px] pb-10 '>
+        <div className='w-full mt-4 px-[20px] md:px-[180px] pb-10 '>
             <h1 className='w-full font-semibold text-2xl'>{place.title}</h1>
             <div className='text-[13px] mt-2 font-semibold'>
                 <span>2 değerlendirme</span> .{' '}
@@ -129,13 +129,13 @@ export default function SinglePlace() {
                 Daha Fazla </button>
             </div>
             
-             <div className='grid grid-cols-[2fr,1fr] mt-4 gap-4'>
+             <div className='grid lg:grid-cols-[2fr,1fr] grid-cols-1 mt-4 gap-4'>
                 <div className='mt-3'>
-                <p className=' text-2xl font-semibold '>Açıklama</p>
+                <p className=' text-lg lg:text-2xl font-semibold '>Açıklama</p>
                 {place.desc}
-                <p className='my-2 text-xl font-semibold mt-3'><span className='text-2xl font-semibold'>Check in : </span>{place.checkIn}:00  </p>
-                <p className='my-2 text-xl font-semibold'><span className='text-2xl font-semibold'>Check out : </span>{place.checkIn}:00  </p>
-                <p className='my-2 text-xl font-semibold'><span className='text-2xl font-semibold'>Maksimum Misafir sayısı : </span>{place.guest} </p>
+                <p className='my-2 text-md lg:text-xl font-semibold mt-3'><span className='text-md lg:text-2xl font-semibold'>Check in : </span>{place.checkIn}:00  </p>
+                <p className='my-2 text-md lg:text-xl font-semibold'><span className='text-md lg:text-2xl font-semibold'>Check out : </span>{place.checkIn}:00  </p>
+                <p className='my-2 text-md lg:text-xl font-semibold'><span className='text-md lg:text-2xl font-semibold'>Maksimum Misafir sayısı : </span>{place.guest} </p>
                 </div>
                 <div>
                     <div className='border-2 rounded-md py-2 px-4 '>

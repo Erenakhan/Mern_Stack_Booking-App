@@ -7,7 +7,7 @@ export default function Header() {
   const { user } = useContext(UserContext);
 
   return (
-    <div className=' flex justify-center gap-[150px] items-center h-[100px] w-full border-gray-100 border-b-2'>
+    <div className=' flex justify-center gap-[150px] items-center h-[100px] w-full border-gray-100 border-b-2 '>
       <Link to={'/'}>
         <div className='flex gap-1 items-center '>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 h-8 text-primary">
@@ -28,7 +28,7 @@ export default function Header() {
         </svg>
       </div>
       <div className='flex gap-1 items-center'>
-        <span className='font-semibold'>Evinizi Booking'e taşıyın</span>
+        <span className='font-semibold hidden md:block'>Evinizi Booking'e taşıyın</span>
         <Link to={user ? 'account':'/login'} className='border-2 shadow-sm flex  rounded-2xl gap-2 p-2'>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />

@@ -48,7 +48,7 @@ export default function RegisterPage() {
       <ToastContainer />
       <div className='mb-60'>
         <h1 className='text-2xl font-semibold text-center mb-4'>Kayıt ol</h1>
-        <form className='max-w-md mx-auto' onSubmit={handleSubmit}>
+        <form className='max-w-md  mx-5 md:mx-auto' onSubmit={handleSubmit}>
           <input
             value={name}
             type='name'
@@ -59,7 +59,7 @@ export default function RegisterPage() {
           <input
           value={email}
             type='email'
-            className='w-full border-2 my-1 py-2 px-3 rounded-xl'
+            className='w-full  border-2 my-1 py-2 px-3 rounded-xl'
             placeholder='your@email.com'
             onChange={(e) => setEmail(e.target.value)}
           />

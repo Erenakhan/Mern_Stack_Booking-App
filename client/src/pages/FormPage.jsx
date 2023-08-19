@@ -242,21 +242,21 @@ export default function FromPage() {
                     Şahsi giriş</span>
                 </label>
             </div>
-            <div className='grid gird-col-1 md:grid-col-2 grid-cols-3 my-2'>
+            <div className='grid grid-col-1 md:grid-col-2 lg:grid-cols-4 my-2'>
                 <div>
-                    <label className='font-semibold text-lg' >Check In</label>
+                    <label className='font-semibold md:text-lg'>Check In</label> <br />
                     <input  className='border-2 my-1 py-2 px-3 rounded-xl' type="text"  placeholder='10:00' value={checkIn} onChange={e=>setCheckIn(e.target.value)}/>
                 </div>
                 <div>
-                    <label  className='font-semibold text-lg'>Check Out</label>
+                    <label  className='font-semibold md:text-lg'>Check Out</label> <br/>
                     <input  className='border-2 my-1 py-2 px-3 rounded-xl' type="text" placeholder='10:00'  value={checkOut} onChange={e=>setCheckOut(e.target.value)}/>
                 </div>
                 <div className='my-2'>
-                    <label  className='font-semibold text-lg'>Maksimum Misafir Sayısı: </label>
+                    <label  className='font-semibold md:text-lg'>Maksimum Misafir Sayısı: </label> <br />
                     <input  className='border-2 my-1 py-2 px-3 rounded-xl' type="text" value={guest} onChange={e=>setGuest(e.target.value)} />
                 </div>
                 <div className='my-2'>
-                    <label  className='font-semibold text-lg'>Ücret: </label>
+                    <label  className='font-semibold md:text-lg'>Ücret: </label> <br />
                     <input  className='border-2 my-1 py-2 px-3 rounded-xl' type="text" value={price} onChange={e=>setPrice(e.target.value)} />
                 </div>
             </div>

@@ -33,17 +33,15 @@ export default function CreatePlace() {
        :  <div>
        {places.length > 0 ? places.map(place => (
        <Link to={place._id}  
-        className=' w-full mx-3 border-2  my-2 mt-4 flex p-4 rounded-md bg-gray-100'
+        className='w-full mx-3 border-2  my-2 mt-4 flex flex-col md:flex-row p-4 rounded-md bg-gray-100'
         key={place.title}>
 
           {place.photo.length > 0 &&
-          <div className='flex  max-w-[250px] max-h-[250px]' key={place.id}>
-            <Image className='object-cover ' src={place.photo[0]} alt="" />
+          <div className='flex  md:max-w-[250px] md:max-h-[250px]' key={place.id}>
+            <Image className='object-cover w-full ' src={place.photo[0]} alt="" />
           </div>
-        }
-          
-         
-          <div className='flex flex-col gap-2 justify  p-4'>
+        }   
+          <div className='flex flex-col gap-2  p-4'>
             <p className='text-xl'>{place.title}</p> 
             <p className='underline'>{place.address}</p> 
 

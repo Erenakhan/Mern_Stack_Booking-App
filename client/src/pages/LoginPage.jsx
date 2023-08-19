@@ -65,7 +65,7 @@ const LoginPage = () => {
       <ToastContainer />
       <div className='mb-60'>
         <h1 className='text-2xl font-semibold text-center mb-4'>Giriş Yap</h1>
-        <form className='max-w-md mx-auto' onSubmit={handleSubmit}>
+        <form className='max-w-md mx-5 md:mx-auto' onSubmit={handleSubmit}>
           <input
             type='email'
             className='w-full border-2 my-1 py-2 px-3 rounded-xl '
