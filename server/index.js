@@ -24,11 +24,11 @@ const { env } = require('process');
 
 const app = express();
 const port = 5000;
-require('dotenv').config()  
+require('dotenv').config()
 const bucket = "app-booking";
 
 const corsOptions = {
-  origin:  ['http://127.0.0.1:5173','https://mern-app-booking.vercel.app'],
+  origin:  origin: 'http://127.0.0.1:5173',
   credentials: true,
 };
 
@@ -38,15 +38,15 @@ app.use(express.json());
 app.use(cookieParser());
 
   // MongoDB connection
-const uri = "mongodb+srv://erenakhan:erenakhan123@cluster0.nfh3dwr.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.URL;
 
 
 async function uploadToS3(path, originalFilename, mimetype){
   const client = new S3Client({
     region: 'eu-north-1',
     credentials: {
-      accessKeyId: "AKIAZAKXA2UOT2FVDBGD",
-      secretAccessKey: "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"
+      accessKeyId: process.env.Access_key,
+      secretAccessKey: process.env.Secret_access_key
     }
   });
   const parts = originalFilename.split('.');
