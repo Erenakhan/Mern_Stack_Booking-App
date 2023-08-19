@@ -28,7 +28,7 @@ require('dotenv').config()
 const bucket = "app-booking";
 
 const corsOptions = {
-  origin:  origin: 'http://127.0.0.1:5173',
+  origin: 'http://127.0.0.1:5173',
   credentials: true,
 };
 
