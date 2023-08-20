@@ -1,11 +1,10 @@
 import React, { useState ,useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contex';
 import { useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -33,7 +32,7 @@ const LoginPage = () => {
       console.log(response.data);
 
       if (receivedToken) {
-        toast.success('Giriş Başarılı');
+        toast.success("Giriş Başarılı..");
         setDirection(true);
       } else {
         toast.error('Giriş yapılamadı..');
@@ -62,7 +61,7 @@ const LoginPage = () => {
 
   return (
     <div className='grow flex items-center justify-center'>
-      <ToastContainer />
+      <div><Toaster/></div>
       <div className='mb-60'>
         <h1 className='text-2xl font-semibold text-center mb-4'>Giriş Yap</h1>
         <form className='max-w-md mx-5 md:mx-auto' onSubmit={handleSubmit}>

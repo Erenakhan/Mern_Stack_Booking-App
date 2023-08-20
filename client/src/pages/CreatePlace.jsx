@@ -20,7 +20,7 @@ export default function CreatePlace() {
    },[])
 
   return (
-    <div className= '  flex-col-4 w-full mt-4  justify-center'>
+    <div className= 'flex-col-4 w-full mt-4  justify-center'>
       <Link to='/account/accommodations/new' className="w-sm mx-auto py-2 mt-3 bg-primary rounded-full text-white flex justify-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -33,7 +33,7 @@ export default function CreatePlace() {
        :  <div>
        {places.length > 0 ? places.map(place => (
        <Link to={place._id}  
-        className='w-full mx-3 border-2  my-2 mt-4 flex flex-col md:flex-row p-4 rounded-md bg-gray-100'
+        className='w-full px-3 border-2  my-2 mt-4 flex flex-col md:flex-row p-4 rounded-md bg-gray-100'
         key={place.title}>
 
           {place.photo.length > 0 &&

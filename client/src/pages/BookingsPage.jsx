@@ -3,6 +3,7 @@ import axios from 'axios';
 import Image from '../Components/Image';
 
 
+
 export default function BookingsPage() {
   const [places, setPlaces] = useState([]);
 
@@ -14,7 +15,7 @@ export default function BookingsPage() {
       }
     });
   }, []);
-  console.log(places)
+
 
   return (
     <div className='pt-6'>
@@ -62,7 +63,7 @@ export default function BookingsPage() {
         ))
       ) : (
         <div className='w-screen h-[400px] flex justify-center items-center'>
-          <div className='text-4xl text-gray-400'>Adınıza kayıttlı rezervasyon bulunamadı : /</div>
+          <div className='text-lg  lg:text-4xl text-gray-400'>Adınıza kayıttlı rezervasyon bulunamadı : /</div>
         </div>
       )}
     </div>
