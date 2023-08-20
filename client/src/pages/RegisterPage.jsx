@@ -2,10 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
-
-  import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -45,7 +42,7 @@ export default function RegisterPage() {
   
   return (
     <div className='grow flex items-center justify-center'>
-      <ToastContainer />
+      <Toaster/>
       <div className='mb-60'>
         <h1 className='text-2xl font-semibold text-center mb-4'>Kayıt ol</h1>
         <form className='max-w-md  mx-5 md:mx-auto' onSubmit={handleSubmit}>
