@@ -58,14 +58,13 @@ export default function SinglePlace() {
         }
         if (allPhotos) {
             return (
-                <div className="absolute w-screen px-5 md:px-[150px] bg-black text-white min-h-screen  ">
-                <div className='fixed cursor-pointer mt-10 w-full flex justify-end'>
+                <div className="absolute w-full px-5 md:px-[150px] bg-black text-white min-h-screen  ">
+                <div className='fixed cursor-pointer mt-10 '>
                 <button onClick={() => setAllPhotos(false)} 
-                className='mr-20 bg-white px-4 py-3 text-black rounded-lg '>
+                className=' bg-white px-3 py-2 md:px-4 md:py-3 text-black rounded-lg '>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
-
                 </button>
                 </div>
                
